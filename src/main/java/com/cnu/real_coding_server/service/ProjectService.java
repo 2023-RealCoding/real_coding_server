@@ -25,4 +25,17 @@ public class ProjectService {
     public Optional<Project> getProject(Integer projectId) {
         return projectRepository.findById(projectId);
     }
+
+    public Optional<Project> updateProject(Integer projectId, ProjectRequest projectRequest) {
+        return projectRepository.findById(projectId)
+                .map(project -> {
+                    project.setTitle(projectRequest.getTitle());
+                    project.setDescription(projectRequest.getDescription());
+                    project.setSummary(projectRequest.getSummary());
+                    project.setStartDate(projectRequest.getStartDate());
+                    project.setEndDate(projectRequest.getEndDate());
+                    project.setIsInProgress(projectRequest.getIsInProgress());
+                    return projectRepository.save(project);
+                });
+    }
 }
