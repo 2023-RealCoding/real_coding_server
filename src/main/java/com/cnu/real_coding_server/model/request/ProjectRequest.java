@@ -2,10 +2,12 @@ package com.cnu.real_coding_server.model.request;
 
 import com.cnu.real_coding_server.entity.Project;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Getter
+@Setter
 public class ProjectRequest {
     private String title;
 
