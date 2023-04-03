@@ -24,4 +24,9 @@ public class ProjectController {
     public ResponseEntity<List<Project>> getProjects() {
         return ResponseEntity.ok(projectService.getProjects());
     }
+
+    @GetMapping("/{projectId}")
+    public ResponseEntity<Project> getProject(@PathVariable("projectId") Integer projectId) {
+        return ResponseEntity.ok(projectService.getProject(projectId).orElse(null));
+    }
 }

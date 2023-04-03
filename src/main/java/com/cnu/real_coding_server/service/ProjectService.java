@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,5 +20,9 @@ public class ProjectService {
 
     public List<Project> getProjects() {
         return projectRepository.findAll();
+    }
+
+    public Optional<Project> getProject(Integer projectId) {
+        return projectRepository.findById(projectId);
     }
 }
