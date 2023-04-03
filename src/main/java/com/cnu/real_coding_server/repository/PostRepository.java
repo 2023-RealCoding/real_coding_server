@@ -11,3 +11,4 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 //    Optional<Post> findById(Integer postId);
 //    void delete(Post post);
 }
+//jparepository를 상속받으면위의 주석처리한 부분들을 작성하지 않아도 됨
