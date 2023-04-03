@@ -19,4 +19,4 @@ spring:
         format_sql: true # ???? query? ???
 
 logging.level:
-  org.hibernate.SQL: debug
+  org.hibernate.SQL: info
