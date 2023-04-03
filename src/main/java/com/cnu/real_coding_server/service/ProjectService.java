@@ -6,6 +6,8 @@ import com.cnu.real_coding_server.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ProjectService {
@@ -13,5 +15,9 @@ public class ProjectService {
 
     public Project createProject(ProjectRequest projectRequest) {
         return projectRepository.save(projectRequest.toEntity());
+    }
+
+    public List<Project> getProjects() {
+        return projectRepository.findAll();
     }
 }
