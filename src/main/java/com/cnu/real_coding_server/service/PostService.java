@@ -15,6 +15,7 @@ public class PostService {
 
     private final PostRepository postRepository;
 
+
     public Post createPost(PostRequest  postRequest){
         return postRepository.save(postRequest.toEntity());
     }
@@ -28,6 +29,7 @@ public class PostService {
     }
 
     public Optional<Post> updatePost(Integer postId, PostRequest postRequest){
+
         return postRepository.findById(postId)
                 .map(post -> {
                     post.setTitle(postRequest.getTitle());
@@ -38,9 +40,11 @@ public class PostService {
     }
 
 
+
     public void  deletePost (Integer postId){
         postRepository.findById(postId).ifPresent(post -> postRepository.delete(post));
     }
+
 
 
 }
