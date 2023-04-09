@@ -16,7 +16,7 @@ public class PostService {
     private final PostRepository postRepository;
 
     public Post createPost(PostRequest postRequest) {
-        return postRepository.save(postRequest.toEntity());
+        return postRepository.save(postRequest.toEntity()); 
     }
 
     public List<Post> getPosts() {
