@@ -50,7 +50,7 @@ jobs:
         with:
           host: 34.64.204.61
           username: dadd55
-          source: "real_coding_server.jar"
+          source: "real_coding_server-0.0.1-SNAPSHOT.jar"
           target: "/home/dadd55"
           key: ${{ secrets.PRIVATE_KEY }}
   
