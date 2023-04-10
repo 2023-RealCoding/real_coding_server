@@ -61,8 +61,8 @@ jobs:
       - name: Move deploy.sh
         uses: appleboy/scp-action@master
         with:
-          host:34.22.77.104
-          username:gyeongee113
+          host: 34.22.77.104
+          username: gyeongee113
           source: "deploy.sh"
           target: "/home/gyeongee113"
           key: ${{ secrets.PRIVATE_KEY }}
