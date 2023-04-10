@@ -49,7 +49,7 @@ jobs:
           host: 34.64.132.78
           username: p4rker911
           source: "real_coding_server-0.0.1-SNAPSHOT.jar"
-          target: "/home/adulkid.kaya"
+          target: "/home/p4rker911"
           key: ${{ secrets.PRIVATE_KEY }}
   
   run-app:
