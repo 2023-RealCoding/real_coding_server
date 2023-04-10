@@ -22,6 +22,7 @@ public class Post extends BaseEntity {
 
     @Setter
     @Enumerated(EnumType.STRING)
+    @Setter
     private Tag tag;
 
     @Builder

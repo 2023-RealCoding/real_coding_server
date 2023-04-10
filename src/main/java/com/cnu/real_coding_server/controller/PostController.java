@@ -31,6 +31,7 @@ public class PostController {
     }
 
     @PutMapping("/{postId}")
+    public ResponseEntity<Post> updatePost(@PathVariable("postId") Integer postId,
     public ResponseEntity<Post> updatePost(@PathVariable("postId")Integer postId,
                                            @RequestBody PostRequest postRequest) {
         return ResponseEntity.ok(postService.updatePost(postId, postRequest).orElse(null));
