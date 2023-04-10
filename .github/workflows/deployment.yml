@@ -46,7 +46,7 @@ jobs:
       - name: Send jar to remote server
         uses: appleboy/scp-action@master
         with:
-          host: 34.64.187.9:8080
+          host: 34.64.187.9
           username: ksk85628781
           source: "real_coding_server-0.0.1-SNAPSHOT.jar"
           target: "/home/ksk85628781"
@@ -61,7 +61,7 @@ jobs:
       - name: Move deploy.sh
         uses: appleboy/scp-action@master
         with:
-          host: 34.64.187.9:8080
+          host: 34.64.187.9
           username: ksk85628781
           source: "deploy.sh"
           target: "/home/ksk85628781"
@@ -70,7 +70,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           username: ksk85628781
-          host: 34.64.187.9:8080
+          host: 34.64.187.9
           key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
           script: cd /home/ksk85628781 && chmod +x deploy.sh && ./deploy.sh
