@@ -49,7 +49,7 @@ jobs:
           host: {34.64.157.168}
           username: {kdm0068}
           source: "real_coding_server-0.0.1-SNAPSHOT.jar"
-          target: "/home/adulkid.kaya"
+          target: "/home/kdm0068"
           key: ${{ secrets.PRIVATE_KEY }}
   
   run-app:
@@ -61,16 +61,16 @@ jobs:
       - name: Move deploy.sh
         uses: appleboy/scp-action@master
         with:
-          host: {나의 public ip}
-          username: {나의 userName}
+          host: {34.64.157.168}
+          username: {kdm0068}
           source: "deploy.sh"
-          target: "/home/{나의 userName}"
+          target: "/home/{kdm0068}"
           key: ${{ secrets.PRIVATE_KEY }}
       - name: Execute script
         uses: appleboy/ssh-action@master
         with:
-          username: {나의 userName}
-          host: {나의 public ip}
+          username: {kdm0068}
+          host: {34.64.157.168}
           key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
-          script: cd /home/{나의 userName} && chmod +x deploy.sh && ./deploy.sh
+          script: cd /home/{kdm0068} && chmod +x deploy.sh && ./deploy.sh
