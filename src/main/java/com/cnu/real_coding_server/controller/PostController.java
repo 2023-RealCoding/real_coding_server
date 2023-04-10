@@ -4,6 +4,7 @@ import com.cnu.real_coding_server.entity.Post;
 import com.cnu.real_coding_server.model.request.PostRequest;
 import com.cnu.real_coding_server.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,15 +32,13 @@ public class PostController {
     }
 
     @PutMapping("/{postId}")
-    public ResponseEntity<Post> updatePost(@PathVariable("postId")Integer postId,
-                                           @RequestBody PostRequest postRequest) {
+    public ResponseEntity<Post> updatePost(@PathVariable("postId") Integer postId, @RequestBody PostRequest postRequest){
         return ResponseEntity.ok(postService.updatePost(postId, postRequest).orElse(null));
     }
 
     @DeleteMapping("/{postId}")
     public ResponseEntity<Void> deletePost(@PathVariable("postId") Integer postId) {
         postService.deletePost(postId);
-
         return ResponseEntity.noContent().build();
     }
 }
