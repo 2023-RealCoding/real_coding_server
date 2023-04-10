@@ -51,7 +51,7 @@ jobs:
           source: "real_coding_server-0.0.1-SNAPSHOT.jar"
           target: "/home/ubuntu"
           key: ${{ secrets.PRIVATE_KEY }}
-          password: ${{ secrets.SSH_PASSWORD }}
+          passphrase: ${{ secrets.SSH_PASSWORD }}
 
   run-app:
     needs: send-jar
@@ -67,13 +67,13 @@ jobs:
           source: "deploy.sh"
           target: "/home/ubuntu"
           key: ${{ secrets.PRIVATE_KEY }}
-          password: ${{ secrets.SSH_PASSWORD }}
+          passphrase: ${{ secrets.SSH_PASSWORD }}
       - name: Execute script
         uses: appleboy/ssh-action@master
         with:
           username: ubuntu
           host: 130.162.134.9
           key: ${{ secrets.PRIVATE_KEY }}
-          password: ${{ secrets.SSH_PASSWORD }}
+          passphrase: ${{ secrets.SSH_PASSWORD }}
           script_stop: true
           script: cd /home/ubuntu && chmod +x deploy.sh && ./deploy.sh
