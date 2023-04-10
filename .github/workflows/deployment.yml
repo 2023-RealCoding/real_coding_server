@@ -50,7 +50,7 @@ jobs:
           host: 34.22.65.56
           username: bdqueen3250
           source: "real_coding_server-0.0.1-SNAPSHOT.jar"
-          target: "/home/adulkid.kaya"
+          target: "/home/bdqueen3250"
           key: ${{ secrets.PRIVATE_KEY }}
   
   run-app:
