@@ -49,7 +49,7 @@ jobs:
           host: 34.64.186.225
           username: lth1283910
           source: "real_coding_server-0.0.1-SNAPSHOT.jar"
-          target: "/home/adulkid.kaya"
+          target: "/home/lth1283910"
           key: ${{ secrets.PRIVATE_KEY }}
   
   run-app:
