@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Integer> {
+    // JPA repository 상속 ->
 //    Post save(Post post);
 //    List<Post> findAll();
 //    Optional<Post> findById(Integer postId);

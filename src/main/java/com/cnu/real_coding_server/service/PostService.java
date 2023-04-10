@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
 @RequiredArgsConstructor
 public class PostService {
-
-    private final PostRepository postRepository;
+    private final PostRepository postRepository; // 생성되는 postRepository 를 가지고 있을 것
 
     public Post createPost(PostRequest postRequest) {
         return postRepository.save(postRequest.toEntity());
@@ -27,6 +27,8 @@ public class PostService {
         return postRepository.findById(postId);
     }
 
+    /* 수정할 게시글의 ID를 넘겨줘야 할 필요가 있다.
+     * postId의 post를 postRequest로 변경할 것임 */
     public Optional<Post> updatePost(Integer postId, PostRequest postRequest) {
         return postRepository.findById(postId)
                 .map(post -> {
