@@ -49,7 +49,7 @@ jobs:
           host: 130.162.134.9
           username: ubuntu
           source: "real_coding_server-0.0.1-SNAPSHOT.jar"
-          target: "/home/adulkid.kaya"
+          target: "/home/ubuntu"
           key: ${{ secrets.PRIVATE_KEY }}
 
   run-app:
