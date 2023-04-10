@@ -15,21 +15,21 @@ public class PostService {
 
     private final PostRepository postRepository;
 
-    public Post createPost(PostRequest postRequest) {
+    public Post createPost(PostRequest postRequest){
         return postRepository.save(postRequest.toEntity());
     }
 
-    public List<Post> getPosts() {
+    public List<Post> getPosts(){
         return postRepository.findAll();
     }
 
-    public Optional<Post> getPost(Integer postId) {
+    public Optional<Post> getPost(Integer postId){
         return postRepository.findById(postId);
     }
 
-    public Optional<Post> updatePost(Integer postId, PostRequest postRequest) {
+    public Optional<Post> updatePost(Integer postId, PostRequest postRequest){
         return postRepository.findById(postId)
-                .map(post -> {
+                .map(post->{
                     post.setTitle(postRequest.getTitle());
                     post.setContents(postRequest.getContents());
                     post.setTag(postRequest.getTag());
@@ -37,8 +37,8 @@ public class PostService {
                 });
     }
 
-    public void deletePost(Integer postId) {
+    public void deletPost(Integer postId){
         postRepository.findById(postId)
-                .ifPresent(postRepository::delete);
+                .ifPresent(post -> postRepository.delete(post));
     }
 }

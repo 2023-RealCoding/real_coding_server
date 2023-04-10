@@ -11,5 +11,4 @@ public class RealCodingServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(RealCodingServerApplication.class, args);
     }
-
 }

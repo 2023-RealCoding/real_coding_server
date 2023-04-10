@@ -4,6 +4,8 @@ import com.cnu.real_coding_server.entity.Post;
 import com.cnu.real_coding_server.model.request.PostRequest;
 import com.cnu.real_coding_server.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,33 +15,32 @@ import java.util.List;
 @RequestMapping("/posts")
 @RequiredArgsConstructor
 public class PostController {
+    //@Autowired 비권장하는 방법
     private final PostService postService;
 
     @PostMapping
-    public ResponseEntity<Post> createPost(@RequestBody PostRequest postRequest) {
+    public ResponseEntity<Post> createPost(@RequestBody PostRequest postRequest){
         return ResponseEntity.ok(postService.createPost(postRequest));
     }
 
     @GetMapping
-    public ResponseEntity<List<Post>> getPosts() {
+    public ResponseEntity<List<Post>> getPosts(){
         return ResponseEntity.ok(postService.getPosts());
     }
 
     @GetMapping("/{postId}")
-    public ResponseEntity<Post> getPost(@PathVariable("postId") Integer postId) {
+    public ResponseEntity<Post> getPost(@PathVariable("postId") Integer postId){
         return ResponseEntity.ok(postService.getPost(postId).orElse(null));
     }
 
     @PutMapping("/{postId}")
-    public ResponseEntity<Post> updatePost(@PathVariable("postId")Integer postId,
-                                           @RequestBody PostRequest postRequest) {
-        return ResponseEntity.ok(postService.updatePost(postId, postRequest).orElse(null));
+    public ResponseEntity<Post> updatePost(@PathVariable("postId") Integer postId, PostRequest postRequest){
+        return  ResponseEntity.ok(postService.updatePost(postId,postRequest).orElse(null));
     }
 
     @DeleteMapping("/{postId}")
-    public ResponseEntity<Void> deletePost(@PathVariable("postId") Integer postId) {
-        postService.deletePost(postId);
-
+    public ResponseEntity<Void> deletePost(@PathVariable("postId") Integer postId){
+        postService.deletPost(postId);
         return ResponseEntity.noContent().build();
     }
 }

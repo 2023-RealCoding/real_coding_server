@@ -25,6 +25,7 @@ public class Post extends BaseEntity {
     private Tag tag;
 
     @Builder
+
     public Post(String title, String contents, Tag tag) {
         this.title = title;
         this.contents = contents;
