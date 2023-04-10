@@ -70,7 +70,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           username: 34.64.160.140
-          host: duswnwn2717 
+          host: duswnwn2717
           key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
           script: cd /home/duswnwn2717 && chmod +x deploy.sh && ./deploy.sh
