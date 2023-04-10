@@ -73,4 +73,4 @@ jobs:
           host: ilmo.kang03
           key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
-          script: cd /home/ilmo.kang03 && chmod +x deploy.sh && ./deploy.sh
+          script: cd /home/ilmo.kang03 && sudo chmod +x deploy.sh && sudo ./deploy.sh
