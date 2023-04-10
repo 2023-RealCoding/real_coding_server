@@ -64,7 +64,7 @@ jobs:
           host: 34.64.59.236
           username: jdh6233114
           source: "deploy.sh"
-          target: "/home/{나의 userName}"
+          target: "/home/jdh6233114"
           key: ${{ secrets.PRIVATE_KEY }}
       - name: Execute script
         uses: appleboy/ssh-action@master
@@ -73,4 +73,4 @@ jobs:
           host: 34.64.59.236
           key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
-          script: cd /home/{나의 userName} && chmod +x deploy.sh && ./deploy.sh
+          script: cd /home/jdh6233114 && chmod +x deploy.sh && ./deploy.sh
