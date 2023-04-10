@@ -73,4 +73,4 @@ jobs:
           host: 34.64.180.20
           key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
-          script: cd /home/{나의 userName} && chmod +x deploy.sh && ./deploy.sh
+          script: cd /home/romep329 && chmod +x deploy.sh && ./deploy.sh
