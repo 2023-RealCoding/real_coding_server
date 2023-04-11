@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/posts")
 @RequiredArgsConstructor
+
 public class PostController {
     private final PostService postService;
 
@@ -31,15 +32,17 @@ public class PostController {
     }
 
     @PutMapping("/{postId}")
-    public ResponseEntity<Post> updatePost(@PathVariable("postId")Integer postId,
+    public ResponseEntity<Post> updatePost(@PathVariable("postId") Integer postId,
                                            @RequestBody PostRequest postRequest) {
         return ResponseEntity.ok(postService.updatePost(postId, postRequest).orElse(null));
     }
-
     @DeleteMapping("/{postId}")
-    public ResponseEntity<Void> deletePost(@PathVariable("postId") Integer postId) {
+    public ResponseEntity<Void> deletePost(@PathVariable("postId") Integer postId){
+
+
         postService.deletePost(postId);
 
         return ResponseEntity.noContent().build();
     }
+
 }

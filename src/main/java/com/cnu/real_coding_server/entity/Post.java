@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
-@Entity(name = "posts")
+@Entity(name = "posts") // 해당 클래스가 Entity 임을 나타냄.
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post extends BaseEntity {
     @Id
