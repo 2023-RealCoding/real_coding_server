@@ -19,7 +19,6 @@ public class PostController {
     public ResponseEntity<Post> createPost(@RequestBody PostRequest postRequest) {
         return ResponseEntity.ok(postService.createPost(postRequest));
     }
-
     @GetMapping
     public ResponseEntity<List<Post>> getPosts() {
         return ResponseEntity.ok(postService.getPosts());
@@ -39,7 +38,6 @@ public class PostController {
     @DeleteMapping("/{postId}")
     public ResponseEntity<Void> deletePost(@PathVariable("postId") Integer postId) {
         postService.deletePost(postId);
-
         return ResponseEntity.noContent().build();
     }
 }
