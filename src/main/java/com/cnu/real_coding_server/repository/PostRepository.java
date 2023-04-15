@@ -1,6 +1,7 @@
 package com.cnu.real_coding_server.repository;
 
 import com.cnu.real_coding_server.entity.Post;
+import com.cnu.real_coding_server.model.request.PostRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,4 +11,5 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 //    List<Post> findAll();
 //    Optional<Post> findById(Integer postId);
 //    void delete(Post post);
+
 }
