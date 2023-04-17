@@ -37,6 +37,7 @@ public class Project extends BaseEntity {
     @Setter
     private Boolean isInProgress;
 
+
     @Builder
     private Project(String title,
                     String summary,
