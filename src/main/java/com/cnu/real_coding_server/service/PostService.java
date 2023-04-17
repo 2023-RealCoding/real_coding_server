@@ -24,21 +24,25 @@ public class PostService {
     }
 
     public Optional<Post> getPost(Integer postId) {
-        return postRepository.findById(postId);
+        return postRepository.findById(postId)
+                .orElseThrow(() -> new ResourceNotFoundException("Post not found with id: " + postId));
     }
 
     public Optional<Post> updatePost(Integer postId, PostRequest postRequest) {
-        return postRepository.findById(postId)
-                .map(post -> {
-                    post.setTitle(postRequest.getTitle());
-                    post.setContents(postRequest.getContents());
-                    post.setTag(postRequest.getTag());
-                    return postRepository.save(post);
-                });
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new ResourceNotFoundException("Post not found with id: " + postId));
+
+        post.setTitle(postRequest.getTitle());
+        post.setContents(postRequest.getContents());
+        post.setTag(postRequest.getTag());
+
+        return Optional.of(postRepository.save(post));
     }
 
     public void deletePost(Integer postId) {
-        postRepository.findById(postId)
-                .ifPresent(postRepository::delete);
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new ResourceNotFoundException("Post not found with id: " + postId));
+
+        postRepository.delete(post);
     }
 }

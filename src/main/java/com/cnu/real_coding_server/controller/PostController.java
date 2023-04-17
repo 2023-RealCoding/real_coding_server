@@ -42,4 +42,10 @@ public class PostController {
 
         return ResponseEntity.noContent().build();
     }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String handleResourceNotFoundException(ResourceNotFoundException exception) {
+        return exception.getMessage();
+    }
 }
