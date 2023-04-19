@@ -1,8 +1,7 @@
 package com.cnu.real_coding_server.service;
-
-import com.cnu.real_coding_server.entity.Post;
-import com.cnu.real_coding_server.model.request.PostRequest;
-import com.cnu.real_coding_server.repository.PostRepository;
+import com.cnu.real_coding_server.entity.Project;
+import com.cnu.real_coding_server.model.request.ProjectRequest;
+import com.cnu.real_coding_server.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,34 +10,36 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class PostService {
+public class ProjectService {
+    private final ProjectRepository projectRepository;
 
-    private final PostRepository postRepository;
-
-    public Post createPost(PostRequest postRequest) {
-        return postRepository.save(postRequest.toEntity());
+    public Project createProject(ProjectRequest projectRequest) {
+        return projectRepository.save(projectRequest.toEntity());
     }
 
-    public List<Post> getPosts() {
-        return postRepository.findAll();
+    public List<Project> getProjects() {
+        return projectRepository.findAll();
     }
 
-    public Optional<Post> getPost(Integer postId) {
-        return postRepository.findById(postId);
+    public Optional<Project> getProject (Integer projectId) {
+        return projectRepository.findById(projectId);
     }
 
-    public Optional<Post> updatePost(Integer postId, PostRequest postRequest) {
-        return postRepository.findById(postId)
-                .map(post -> {
-                    post.setTitle(postRequest.getTitle());
-                    post.setContents(postRequest.getContents());
-                    post.setTag(postRequest.getTag());
-                    return postRepository.save(post);
+    public Optional<Project> updateProject(Integer projectId, ProjectRequest projectRequest){
+        return projectRepository.findById(projectId)
+                .map(project ->{
+                    project.setTitle(projectRequest.getTitle());
+                    project.setSummary(projectRequest.getSummary());
+                    project.setDescription(projectRequest.getDescription());
+                    project.setStartDate(projectRequest.getStartDate());
+                    project.setEndDate(projectRequest.getEndDate());
+                    project.setIsInProgress(projectRequest.getIsInProgress());
+                    return  projectRepository.save(project);
                 });
     }
 
-    public void deletePost(Integer postId) {
-        postRepository.findById(postId)
-                .ifPresent(postRepository::delete);
+    public void deleteProject (Integer projectId){
+        projectRepository.findById(projectId).ifPresent(project->projectRepository.delete(project));
     }
+
 }
