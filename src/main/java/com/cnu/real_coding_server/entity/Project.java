@@ -39,11 +39,11 @@ public class Project extends BaseEntity {
 
     @Builder
     private Project(String title,
-                    String summary,
-                    String description,
-                    LocalDateTime startDate,
-                    LocalDateTime endDate,
-                    Boolean isInProgress) {
+            String summary,
+            String description,
+            LocalDateTime startDate,
+            LocalDateTime endDate,
+            Boolean isInProgress) {
         this.title = title;
         this.summary = summary;
         this.description = description;
