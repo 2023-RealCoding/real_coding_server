@@ -15,17 +15,21 @@ public class PostService {
 
     private final PostRepository postRepository;
 
+
     public Post createPost(PostRequest postRequest) {
         return postRepository.save(postRequest.toEntity());
     }
+
 
     public List<Post> getPosts() {
         return postRepository.findAll();
     }
 
+
     public Optional<Post> getPost(Integer postId) {
         return postRepository.findById(postId);
     }
+
 
     public Optional<Post> updatePost(Integer postId, PostRequest postRequest) {
         return postRepository.findById(postId)
@@ -37,8 +41,10 @@ public class PostService {
                 });
     }
 
+
     public void deletePost(Integer postId) {
         postRepository.findById(postId)
                 .ifPresent(postRepository::delete);
     }
+
 }

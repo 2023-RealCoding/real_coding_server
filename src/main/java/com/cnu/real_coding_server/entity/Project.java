@@ -1,9 +1,8 @@
 package com.cnu.real_coding_server.entity;
 
+import com.cnu.real_coding_server.model.type.Tag;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Entity(name = "projects")
@@ -19,36 +18,16 @@ public class Project extends BaseEntity {
 
     @Column
     @Setter
-    private String summary;
+    private String contents;
 
-    @Column
     @Setter
-    private String description;
-
-    @Column
-    @Setter
-    private LocalDateTime startDate;
-
-    @Column
-    @Setter
-    private LocalDateTime endDate;
-
-    @Column
-    @Setter
-    private Boolean isInProgress;
+    @Enumerated(EnumType.STRING)
+    private Tag tag;
 
     @Builder
-    private Project(String title,
-                    String summary,
-                    String description,
-                    LocalDateTime startDate,
-                    LocalDateTime endDate,
-                    Boolean isInProgress) {
+    public Project(String title, String contents, Tag tag) {
         this.title = title;
-        this.summary = summary;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.isInProgress = isInProgress;
+        this.contents = contents;
+        this.tag = tag;
     }
 }

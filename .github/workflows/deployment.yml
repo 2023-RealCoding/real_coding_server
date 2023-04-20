@@ -1,3 +1,4 @@
+
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
@@ -46,10 +47,10 @@ jobs:
       - name: Send jar to remote server
         uses: appleboy/scp-action@master
         with:
-          host: {나의 public ip}
-          username: {나의 userName}
+          host: 34.22.65.56
+          username: bdqueen3250
           source: "real_coding_server-0.0.1-SNAPSHOT.jar"
-          target: "/home/{나의 userName}"
+          target: "/home/bdqueen3250"
           key: ${{ secrets.PRIVATE_KEY }}
   
   run-app:
@@ -61,16 +62,16 @@ jobs:
       - name: Move deploy.sh
         uses: appleboy/scp-action@master
         with:
-          host: {나의 public ip}
-          username: {나의 userName}
+          host: 34.22.65.56
+          username: bdqueen3250
           source: "deploy.sh"
-          target: "/home/{나의 userName}"
+          target: "/home/bdqueen3250"
           key: ${{ secrets.PRIVATE_KEY }}
       - name: Execute script
         uses: appleboy/ssh-action@master
         with:
-          username: {나의 userName}
-          host: {나의 public ip}
+          username: bdqueen3250
+          host: 34.22.65.56
           key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
-          script: cd /home/{나의 userName} && chmod +x deploy.sh && ./deploy.sh
+          script: cd /home/bdqueen3250 && chmod +x deploy.sh && ./deploy.sh
