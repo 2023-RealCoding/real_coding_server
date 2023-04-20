@@ -2,7 +2,6 @@ package com.cnu.real_coding_server.service;
 
 import com.cnu.real_coding_server.entity.Post;
 import com.cnu.real_coding_server.model.request.PostRequest;
-import com.cnu.real_coding_server.model.request.ProjectRequest;
 import com.cnu.real_coding_server.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -47,6 +46,5 @@ public class PostService {
         postRepository.findById(postId)
                 .ifPresent(postRepository::delete);
     }
-
 
 }

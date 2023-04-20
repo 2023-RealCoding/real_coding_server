@@ -24,8 +24,6 @@ public class PostController {
     public ResponseEntity<List<Post>> getPosts() {
         return ResponseEntity.ok(postService.getPosts());
     }
-
-
     @GetMapping("/{postId}")
     public ResponseEntity<Post> getPost(@PathVariable("postId") Integer postId) {
         return ResponseEntity.ok(postService.getPost(postId).orElse(null));
