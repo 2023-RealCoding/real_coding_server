@@ -4,42 +4,50 @@ import com.cnu.real_coding_server.entity.Post;
 import com.cnu.real_coding_server.model.request.PostRequest;
 import com.cnu.real_coding_server.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/posts")
 @RequiredArgsConstructor
 public class PostController {
+
     private final PostService postService;
 
-    @PostMapping
-    public ResponseEntity<Post> createPost(@RequestBody PostRequest postRequest) {
-        return ResponseEntity.ok(postService.createPost(postRequest));
+    @PostMapping("post")
+    public ResponseEntity<?> save(
+            @RequestBody PostRequest postRequest
+    ) {
+        postService.save(postRequest);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Post>> getPosts() {
-        return ResponseEntity.ok(postService.getPosts());
+    @GetMapping("post")
+    public ResponseEntity<?> findAllPost() {
+        List<Post> postList = postService.findAll();
+        return new ResponseEntity<>(postList, HttpStatus.OK);
     }
 
-    @GetMapping("/{postId}")
-    public ResponseEntity<Post> getPost(@PathVariable("postId") Integer postId) {
-        return ResponseEntity.ok(postService.getPost(postId).orElse(null));
+    @GetMapping("post/{postId}")
+    public ResponseEntity<?> findPostById(@PathVariable Integer postId) {
+        Post post = postService.findById(postId);
+        return new ResponseEntity<>(post, HttpStatus.OK);
     }
 
-    @PutMapping("/{postId}")
-    public ResponseEntity<Post> updatePost(@PathVariable("postId")Integer postId,
-                                           @RequestBody PostRequest postRequest) {
-        return ResponseEntity.ok(postService.updatePost(postId, postRequest).orElse(null));
+    @PutMapping("post/{postId}")
+    public ResponseEntity<?> editPostPyId(
+            @PathVariable Integer postId,
+            @RequestBody PostRequest postRequest) {
+        postService.edit(postId, postRequest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/{postId}")
-    public ResponseEntity<Void> deletePost(@PathVariable("postId") Integer postId) {
-        postService.deletePost(postId);
-
-        return ResponseEntity.noContent().build();
+    @DeleteMapping("post/{postId}")
+    public ResponseEntity<?> editPostPyId(
+            @PathVariable Integer postId) {
+        postService.delete(postId);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
