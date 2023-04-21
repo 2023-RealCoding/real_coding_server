@@ -18,6 +18,7 @@ public class PostController {
     private final PostService postService;
 
 //    입력받는 부분
+    
     @PostMapping
     public ResponseEntity<Post> createPost(@RequestBody PostRequest postRequest){
         return ResponseEntity.ok(postService.createPost(postRequest));
