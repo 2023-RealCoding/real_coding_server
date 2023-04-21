@@ -1,6 +1,5 @@
 package com.cnu.real_coding_server.service;
 
-import com.cnu.real_coding_server.entity.Post;
 import com.cnu.real_coding_server.entity.Project;
 import com.cnu.real_coding_server.model.request.ProjectRequest;
 import com.cnu.real_coding_server.repository.ProjectRepository;
