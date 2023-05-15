@@ -1,4 +1,4 @@
-package com.cnu.real_coding_server.entity;
+package com.cnu.post.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

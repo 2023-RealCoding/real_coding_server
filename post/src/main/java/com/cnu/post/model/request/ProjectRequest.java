@@ -1,6 +1,6 @@
-package com.cnu.real_coding_server.model.request;
+package com.cnu.post.model.request;
 
-import com.cnu.real_coding_server.entity.Project;
+import com.cnu.post.entity.Project;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
